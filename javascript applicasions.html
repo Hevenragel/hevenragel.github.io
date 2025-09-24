@@ -67,9 +67,9 @@
 		</aside> <!-- END COLORLIB-ASIDE -->
 		<div id="colorlib-main">
 			
-<h1 class="sidebar-heading">JavaScript</h1>
+<h1 class="sidebar-heading text-center ">JavaScript</h1>
 	    <div class="col-md-8">
-			    				<div class="col-lg-8 sidebar ftco-animate">
+			    	<div class="col-lg-8 sidebar ftco-animate">
 	            <div class="sidebar-box">
 	              <h3>Games</h3>
 	              <hr>
@@ -80,11 +80,15 @@
 								<h3 class="mb-4 sidebar-heading">GAME - 01</h3>
 								<p class="mb-4"> Your Guess 1 - 10 Random Number</p>
 								<p id="answer" class="md-4"> Your Answer is = Right/wrong</p>
+								<p id="scorewrong">lose Score : 10</p>
+								<p id="scoreright"> Win Score : 0</p>
 	              <form action="#" class="subscribe-form">
 	                <div class="form-group">
 	                  <input id="box1" type="text" class="form-control" placeholder="Enter Number">
 	                  <input onclick="check()" type="submit"    value="Click" class="mt-2 btn btn-white submit  ">
 	                </div>
+
+
 
 
 	              </form>
@@ -94,6 +98,10 @@
 		   var box1=document.getElementById("box1")
 		   var answer=document.getElementById("answer")
 		   var random=Math.floor(Math.random()*10)+1
+		   var scorewrong=document.getElementById(scorewrong)
+		   var scoreright=document.getElementById(scoreright)
+		   totalscore=10
+		   wincore=0
 
 
 		   function check()
@@ -101,10 +109,17 @@
 		   	var enternumber=box1.value
 
 		   	if (enternumber == random){
+		   		wincore=wincore+1
+		   		document.getElementById("scoreright").innerText="Your win Score  ="+wincore
 		   		document.getElementById("answer").innerText="Your Answer = right"
+		   		alert("you want right")
 		   	}
 		   	else{
-		   		document.getElementById("answer").innerText="Your Answer = Wrong"
+          totalscore=totalscore-1
+
+          document.getElementById("answer").innerText="Your Answer = Wrong"
+		   		document.getElementById("scorewrong").innerText="Your lose Score =" +totalscore
+
 		   	}
            
 		   }
